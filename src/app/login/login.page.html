@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true">
+  <div class="upper">
+    <div class="icon">
+      <ion-icon name="restaurant"></ion-icon>
+    </div>
+    <p id="login">HOTEL MANAGEMENT APP</p>
+  </div>
+
+  <div class="middle">
+    <div class="box">
+      <form #loginForm="ngForm">
+        <p>Veuillez vous connecter à votre compte</p>
+
+        <ion-item>
+          <ion-label position="floating">
+            E-mail
+          </ion-label>
+          <ion-input type="email" placeholder="Votre mail..." name="email" #email="ngModel" [(ngModel)]="login.email"
+            required email></ion-input>
+          <ion-icon class="ion-align-self-center" slot="end" name="mail"></ion-icon>
+        </ion-item>
+
+        <div *ngIf="email.invalid && email.touched">
+          <ion-text color="danger text-center">
+            <h4 style="padding-left:20px; margin-top:10px;">Veuillez écrire votre adresse e-mail</h4>
+          </ion-text>
+        </div>
+
+
+        <ion-item>
+          <ion-label position="floating">
+            Mot de passe
+          </ion-label>
+          <ion-input [type]="type ? 'password' : 'text'" placeholder="Votre mot de passe..." name="password"
+            #password="ngModel" [(ngModel)]="login.password" required></ion-input>
+          <ion-icon class="ion-align-self-center" slot="end" name="eye-outline" (click)="changeType()"></ion-icon>
+        </ion-item>
+
+        <div *ngIf="password.invalid && password.touched">
+          <ion-text color="danger text-center">
+            <h4 style="padding-left:20px; margin-top:10px;">Veuillez écrire votre mot de passe</h4>
+          </ion-text>
+        </div>
+
+        <p id="forgetPassword" (click)="goToForget()">Mot de passe oublié</p>
+
+        <div class="btn">
+          <ion-button (click)="goToHome()" [disabled]="loginForm.invalid">Connexion</ion-button>
+        </div>
+      </form>
+
+      <p id="media">Ou connectez-vous en utilisant les réseaux sociaux</p>
+      <div class="socialMedia">
+        <ion-icon name="logo-facebook" (click)="facebookLogin()"></ion-icon>
+        <ion-icon name="logo-twitter" (click)="twitterLogin()"></ion-icon>
+        <ion-icon name="logo-google" (click)="gmailLogin()"></ion-icon>
+      </div>
+      <div class="touchLogin" (click)="touchLogin()">
+        <ion-icon name="finger-print-outline"></ion-icon>
+        <p>Connectez-vous à l’aide de Touch ID</p>
+      </div>
+      <div class="faceLogin" (click)="faceLogin()">
+        <ion-icon name="eye-outline"></ion-icon>
+        <p>Connectez-vous avec Face ID</p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="navigator">
+    <p (click)="goToRegister()">Vous n'avez pas de compte ? S'inscrire maintenant</p>
+  </div>
+</ion-content>

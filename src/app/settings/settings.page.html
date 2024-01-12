@@ -1,0 +1,71 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="danger">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Paramètres</ion-title>
+      <ion-icon name="notifications" slot="end"></ion-icon>
+      <ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
+      <ion-icon name="cart" slot="end"></ion-icon>
+      <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+      <img slot="end" src="../../../assets/users/001.JPG" alt="">
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <h4>Paramètre de notification</h4>
+    <ion-list>
+      <ion-item>
+        <ion-label>Notifications d'application</ion-label>
+        <ion-toggle color="danger" mode="ios" [(ngModel)]="setting.appSetting" (ionChange)="changeApp($event)"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>SMS & Email Notifications</ion-label>
+        <ion-toggle color="warning" mode="ios" [(ngModel)]="setting.sms" (ionChange)="changeSms($event)"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Offre spéciale</ion-label>
+        <ion-toggle color="secondary" mode="ios" [(ngModel)]="setting.offer" (ionChange)="changeOffer($event)"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none" (ionChange)="changeReminder($event)">
+        <ion-select mode="ios" okText="Okay" cancelText="Rejeter" label="Rappel de plat" interface="action-sheet"
+          [(ngModel)]="setting.reminder" placeholder="5 Minutes">
+          <ion-select-option value="5 minutes">5 Minutes</ion-select-option>
+          <ion-select-option value="15 minutes">15 Minutes</ion-select-option>
+          <ion-select-option value="30 minutes">30 Minutes</ion-select-option>
+          <ion-select-option value="45 minutes">45 Minutes</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <h4>Contrôle d'accès</h4>
+    <ion-list>
+      <ion-item>
+        <ion-label> <ion-icon color="danger" name="finger-print-outline"></ion-icon>Touch ID </ion-label>
+        <ion-toggle mode="ios" (ionChange)="changetouchId($event)" [(ngModel)]="setting.touchId"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label> <ion-icon color="danger" name="person-circle-outline"></ion-icon>Face ID </ion-label>
+        <ion-toggle mode="ios" (ionChange)="changefaceId($event)" [(ngModel)]="setting.faceId"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <div>
+      <img src="../../../assets/setting.png" alt="">
+      <p>Version 1.0.0</p>
+    </div>
+  </ion-content>
+</div>

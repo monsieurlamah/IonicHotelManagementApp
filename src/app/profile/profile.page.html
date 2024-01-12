@@ -1,0 +1,107 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="search-chef"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profil</ion-title>
+    <ion-icon name="notifications" slot="end"></ion-icon>
+    <ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
+    <ion-icon name="cart" slot="end"></ion-icon>
+    <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+    <img slot="end" src="../../../assets/users/001.JPG" alt="">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="top">
+    <div class="image">
+      <img src="../../../assets/users/001.JPG" alt="">
+
+    </div>
+    <div class="desc">
+      <h3>Monsieur Lamah</h3>
+      <p>monsieurlamah224&#64;gmail.com</p>
+    </div>
+    <div class="edit">
+      <ion-button color="danger">Modifier</ion-button>
+    </div>
+  </div>
+
+  <div class="upperBox">
+    <ion-list>
+
+      <ion-item>
+        <img src="../../../assets/profile/order.png" alt="">
+        <ion-label>Mes commandes</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/favourite.png" alt="">
+        <ion-label>Mon favori</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/credit-card.png" alt="">
+        <ion-label>Mode de paiement</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/address.png" alt="">
+        <ion-label>Mon adresse</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/money.png" alt="">
+        <ion-label>Historique de paiement</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/settings.png" alt="">
+        <ion-label>Préférences</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/gift.png" alt="">
+        <ion-label>Récompenses</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/key.png" alt="">
+        <ion-label>Changer le mot de passe</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <div class="upperBox">
+    <ion-list>
+
+      <ion-item>
+        <img src="../../../assets/profile/faq.png" alt="">
+        <ion-label>FAQ & Aide</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/terms.png" alt="">
+        <ion-label>Politique de confidentialité</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <img src="../../../assets/profile/friends.png" alt="">
+        <ion-label>Invite des amis</ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,211 @@
+<ion-content [fullscreen]="true">
+  <div class="img">
+    <div class="top">
+      <div class="back_div">
+        <ion-icon name="arrow-back-outline" color="light"></ion-icon>
+        <ion-icon name="star-outline" color="light" id="end"></ion-icon>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="first">
+        <img src="../../../assets/users/001.JPG" alt="">
+      </div>
+      <div class="second">
+        <h4>Monsieur Lamah</h4>
+        <p>Houston Texas</p>
+        <p>3.0 <ion-icon name="star-outline"></ion-icon>(125 Reviews)</p>
+      </div>
+      <div class="third">
+        <h4>$20/Hr</h4>
+        <ion-button size="small" color="success">OUVRIR</ion-button>
+      </div>
+    </div>
+
+    <img id="myimg" src="../../../assets/food/001.JPG" alt="">
+  </div>
+
+  <div class="menu">
+    <div class="menuDiv">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <p>Message</p>
+    </div>
+
+    <div class="menuDiv">
+      <ion-icon name="call"></ion-icon>
+      <p>Appel</p>
+    </div>
+
+    <div class="menuDiv">
+      <ion-icon name="map-outline"></ion-icon>
+      <p>Direction</p>
+    </div>
+
+    <div class="menuDiv">
+      <ion-icon name="share-outline"></ion-icon>
+      <p>Partager</p>
+    </div>
+  </div>
+
+  <div class="ch-menu">
+    <p>Menu du chef</p>
+    <div class="wrapper">
+      <div class="item" *ngFor="let item of user">
+        <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+        <p>{{item.title | slice:0:6}}</p>
+      </div>
+    </div>
+
+    <ion-segment [value]="segId" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="overview">
+        <ion-label>Aperçu</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="services">
+        <ion-label>Services</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="reviews">
+        <ion-label>Commentaires</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div class="content">
+    
+    <div class="overview" *ngIf="segId === 'overview'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5">
+            <p>À propos</p>
+          </ion-col>
+          <ion-col size="7">
+            <p class="ion-text-end"><span>Prix ​​moyen :</span><span>$20/</span>heure</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <hr>
+      <p class="intro">Bonjour, je m'appelle Lamah Luke. J'ai toujours eu une passion pour la cuisine. Le jour, je suis
+        un chef pour un 5 étoiles
+        restaurant. Ensuite, j'utilise Open Kitchen pour partager mes passions avec le monde.<span>En savoir plus</span>
+      </p>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5">
+            <p>Heures disponibles</p>
+          </ion-col>
+          <ion-col size="7">
+            <p class="ion-text-end"><span></span><span>Voir les détails</span></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <hr>
+      <div class="hrs">
+        <ion-label>
+          <ion-icon name="ellipse"> </ion-icon>
+          <span>Lundi - vendredi : </span>
+          16h00 - 20h00
+        </ion-label>
+        <br>
+        <ion-label>
+          <ion-icon name="ellipse"></ion-icon>
+          <span>Samedi- Dimanche : </span>
+          7h00 - 20h00
+        </ion-label>
+
+      </div>
+
+      <br>
+
+      <div class="address">
+        <h3>Adresse</h3>
+        <ion-label>16704 Bishop Knoll, Houston, Texas 77084, USA</ion-label>
+
+        <h3>Photos <span>Voir tout</span></h3>
+
+        <div class="lower-box">
+          <div class="wrapper">
+            <div class="item" *ngFor="let item of dish">
+              <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+            </div>
+          </div>
+        </div>
+        <ion-button expand="block" (click)="goToEvent()">Réservez un chef</ion-button>
+      </div>
+
+    </div>
+
+    <div class="services" *ngIf="segId === 'services'">
+      <div class="lower-box">
+        <div class="wrapper">
+          <div class="item" *ngFor="let item of dish">
+            <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+          </div>
+        </div>
+
+        <div *ngFor="let order of orders" class="innerService">
+          <p id="date">{{order.date}}</p>
+          <div class="upperBox1" *ngFor="let Singleorder of order.order">
+            <div class="image">
+              <img id="img" src="../../../assets/food/{{Singleorder.image}}" alt="">
+            </div>
+            <div class="title">
+              <h3>{{Singleorder.title}}</h3>
+            </div>
+            <div class="menu">
+              <h3>
+                <ion-icon name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon>
+              </h3>
+            </div>
+            <div class="amount">
+              <h3>${{Singleorder.amount}}</h3>
+            </div>
+            <div class="time">
+              <p>Est. Time: {{Singleorder.time}}</p>
+            </div>
+            <div class="edit">
+              <button class="btn" type="submit" (click)="presentActionSheet()">Ajouter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reviews" *ngIf="segId === 'reviews'">
+      <div class="lower-box">
+        <div class="wrapper">
+          <div class="item" *ngFor="let item of dish">
+            <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+          </div>
+        </div>
+
+        <div *ngFor="let order of orders" class="innerService">
+          <p id="date">{{order.date}}</p>
+          <div class="upperBox1" *ngFor="let Singleorder of order.order">
+            <div class="image">
+              <img id="img" src="../../../assets/food/{{Singleorder.image}}" alt="">
+            </div>
+            <div class="title">
+              <h3>{{Singleorder.title}}</h3>
+            </div>
+            <div class="menu">
+              <h3>
+                <ion-icon name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon>
+              </h3>
+            </div>
+            <div class="amount">
+              <h3>${{Singleorder.amount}}</h3>
+            </div>
+            <div class="time">
+              <p>Est. Time: {{Singleorder.time}}</p>
+            </div>
+            <div class="edit">
+              <button class="btn" type="submit" (click)="presentActionSheet()">Ajouter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

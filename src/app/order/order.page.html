@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" class="menu_btn">
+      <ion-back-button color="light" defaultHref="search-chef"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Commandes</ion-title>
+
+    <ion-icon name="notifications" slot="end"></ion-icon>
+    <ion-badge id="notifications-badge-msg" color="danger">2</ion-badge>
+    <ion-icon name="cart" slot="end"></ion-icon>
+    <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+
+    <img slot="end" src="../../../assets/users/001.JPG" alt="">
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="top">
+    <ion-segment value="upcoming" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="upcoming">
+        <ion-label>A venir</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="past">
+        <ion-label>Commandes passées</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div *ngFor="let order of orders">
+    <p id="date">{{order.date}}</p>
+
+    <div class="upperBox" *ngFor="let Singleorder of order.order">
+      <div class="image">
+        <img src="../../../assets/food/{{Singleorder.image}}" alt="">
+      </div>
+      <div class="title">
+        <h3>{{Singleorder.title}}</h3>
+      </div>
+
+      <div class="menu">
+        <ion-icon name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon>
+      </div>
+
+      <div class="orderId">
+        <p>Order ID: #{{Singleorder.transId}}</p>
+      </div>
+
+      <div class="amount">
+        <h3>${{Singleorder.amount}}</h3>
+      </div>
+
+      <div class="status">
+        <p
+          [ngStyle]="{'color':(Singleorder.status === 'CONFIRM') ? 'green' : 'red', 'background':(Singleorder.status === 'CONFIRM') ? '#e4f4eb' : '#f7d0c7' }">
+          {{Singleorder.status}}</p>
+      </div>
+
+      <div class="time">
+        <p>Est. Time : {{Singleorder.time}}</p>
+      </div>
+
+      <div class="edit">
+        <button class="btn" type="submit">Réorganiser</button>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

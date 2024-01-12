@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" class="menu_btn">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Liste des chefs</ion-title>
+
+    <ion-icon name="notifications" slot="end" (click)="notificationModal($event)"></ion-icon>
+    <ion-badge id="notification-badge-msg" color="danger">2</ion-badge>
+
+    <ion-icon name="cart" slot="end" (click)="notificationModal($event)"></ion-icon>
+    <ion-badge id="notification-badge" color="danger">2</ion-badge>
+
+    <img slot="end" src="../../../assets/users/001.JPG" (click)="presentModal($event)" alt="">
+  </ion-toolbar>
+
+  <ion-toolbar color="danger">
+    <ion-searchbar placeholder="Recherchez Chef ou Plat"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="chef-box">
+    <div class="upper-box">
+
+      <div class="img">
+        <img src="../../../assets/users/001.JPG" alt="">
+      </div>
+
+      <div class="name-text">
+        <h5>Monsieur Lamah</h5>
+        <p>Conakry, Sonfonia</p>
+        <p><ion-icon name="star"></ion-icon><span>4.0</span>(208 Commentaires)</p>
+        <p>08h30 - 21h00</p>
+      </div>
+
+      <div class="hour-text">
+        <p class="ion-text-end">1.0 Km <ion-icon color="danger" name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon></p>
+        <h5 class="ion-text-end">$20/Hour</h5>
+        <ion-button color="danger">Book</ion-button>
+      </div>
+    </div>
+
+    <div class="lower-box">
+      <div class="wrapper">
+        <div class="item" *ngFor="let item of data">
+          <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="chef-box">
+    <div class="upper-box">
+
+      <div class="img">
+        <img src="../../../assets/users/002.JPG" alt="">
+      </div>
+
+      <div class="name-text">
+        <h5>Monsieur Lamah</h5>
+        <p>Conakry, Sonfonia</p>
+        <p><ion-icon name="star"></ion-icon><span>4.0</span>(208 Commentaires)</p>
+        <p>08h30 - 21h00</p>
+      </div>
+
+      <div class="hour-text">
+        <p class="ion-text-end">1.0 Km <ion-icon color="danger" name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon></p>
+        <h5 class="ion-text-end">$20/Hour</h5>
+        <ion-button color="danger">Book</ion-button>
+      </div>
+    </div>
+
+    <div class="lower-box">
+      <div class="wrapper">
+        <div class="item" *ngFor="let item of data">
+          <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="chef-box">
+    <div class="upper-box">
+
+      <div class="img">
+        <img src="../../../assets/users/003.JPG" alt="">
+      </div>
+
+      <div class="name-text">
+        <h5>Monsieur Lamah</h5>
+        <p>Conakry, Sonfonia</p>
+        <p><ion-icon name="star"></ion-icon><span>4.0</span>(208 Commentaires)</p>
+        <p>08h30 - 21h00</p>
+      </div>
+
+      <div class="hour-text">
+        <p class="ion-text-end">1.0 Km <ion-icon color="danger" name="ellipsis-vertical-outline" (click)="presentPopover($event)"></ion-icon></p>
+        <h5 class="ion-text-end">$20/Hour</h5>
+        <ion-button color="danger">Book</ion-button>
+      </div>
+    </div>
+
+    <div class="lower-box">
+      <div class="wrapper">
+        <div class="item" *ngFor="let item of data">
+          <img id="img" src="../../../assets/food/{{item.image}}" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>
